@@ -21,7 +21,7 @@ def new_time():
     datetime_utc = datetime.now(UTC)                             #sets the time of start
     global time_object
     time_object = datetime_utc.strftime("%Y-%m-%dT%H:%M:%SZ")    #converts the time of start into the right format
-    print(time_object)
+    print(f'The account has posted, no promotion code found. New time: {time_object}')
     new_tweet()
 
 def new_tweet():    #checks if there is any new tweet since starting the program
@@ -54,15 +54,11 @@ def promo_codes(words):                 #finding which word from the list(words)
     global c,c1
     c = -1
     c1 = 0
-    print(words)
     promo_code = words[c:]            #last word
     while len(str(promo_code)) != 24: #checks the lenght of every word, the code has a length of 24 characters
         promo_code = words[c:c1]
         d = len(words)
-        print(f'The string: {promo_code} has a length of {len(str(promo_code))} and it is the {(c*-1)} word in the word'
-              f' list with {d} words')
         if (c*-1)>=d:                   #run the program only the ammount of times equal to ammount of words in the tweet
-            print(c)
             if (len(str(promo_code))) != 24:
                 return 1
         c -= 1
