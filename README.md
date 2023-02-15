@@ -7,8 +7,8 @@ PCB is a bot used for copying any kind of promotion codes from a Twitter account
 Fill in the following lines of code:
 
 - 13 [for more info about Twitter API, click [here](https://developer.twitter.com/en/portal/petition/essential/basic-info)]
-- 29 [put in the ID of the account]
-- 59 & 66 [put in the length of desired code plus 4(for 20 put in 24)]
+- 28 [put in the ID of the account]
+- 57 & 61 [put in the length of desired code plus 4(for 20 put in 24)]
 
 ## Usage
 
