@@ -142,7 +142,7 @@ class Setup(App):
 
     def api_callback(self, dt):
         inp = self.user.text
-        if len(inp) > 112:
+        if len(inp) < 112:
             self.label2.text = "Please enter a proper Bearer Token"
         else:
             self.label.text = "The Bearer Token has been successfully entered"
