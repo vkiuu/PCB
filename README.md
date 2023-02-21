@@ -4,19 +4,16 @@ PCB is a bot used for copying any kind of promotion codes from a Twitter account
 
 ## Configuration
 
-Fill in the following lines of code:
-
-- 13 [for more info about Twitter API, click [here](https://developer.twitter.com/en/portal/petition/essential/basic-info)]
-- 28 [put in the ID of the account]
-- 57 & 61 [put in the length of desired code plus 4(for 20 put in 24)]
+In order to configure the program first run setup.py file, after that PCB.py will be ready to run.
 
 ## Usage
 
-After configuration, run PCB.py program. It should display the following message: 
-"code is now running..."; if that happens you should immediately select the input 
-box you want the code to be entered in and wait until the program pastes in the promotion code.
+After configuration,PCB.py should display the following message:"code is now running..."; 
+if that happens you should select the input box you want the code to be entered in and wait
+until the program pastes the promotion code in the input box.
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
