@@ -42,7 +42,7 @@ class Setup(App):
         self.window.add_widget(self.label2)
 
         class Input(TextInput):
-            max_length = 112
+            max_length = 116
 
             def insert_text(self, substring, from_undo=False):
                 s = substring.strip()
