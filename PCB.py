@@ -10,7 +10,7 @@ from config import id, token, code_len
 api = tweepy.Client(token)
 
 
-def work():
+def start():
     utc = pytz.utc
     datetime_utc = datetime.now(utc)  #sets the time of start
     global time_object
@@ -84,6 +84,7 @@ def enter_code(code):
 
 
 print("code is now running...")
+start()
 new_tweet()
 while code == 1:
     new_time()
