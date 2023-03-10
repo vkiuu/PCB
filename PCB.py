@@ -1,3 +1,4 @@
+import platform
 import time
 from datetime import datetime
 from pynput.keyboard import Key, Controller
@@ -5,9 +6,11 @@ import pyperclip
 import pytz
 import tweepy
 from config import id, token, code_len
+import platform
 
 
 api = tweepy.Client(token)
+
 
 
 def start():
@@ -76,13 +79,16 @@ def enter_code(code):
     keyboard = Controller()
     code = code[0]
     pyperclip.copy(code)
-    with keyboard.pressed(Key.cmd):
-        keyboard.press('v')
-        keyboard.release('v')
+    if platform.system() == 'Windows':
+        with keyboard.pressed(Key.ctrl):
+            keyboard.press('v')
+            keyboard.release('v')
+    elif platform.system() == 'Darwin':
+        with keyboard.pressed(Key.cmd):
+            keyboard.press('v')
+            keyboard.release('v')
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
-
-
 print("code is now running...")
 start()
 new_tweet()
