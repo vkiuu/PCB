@@ -17,9 +17,9 @@ class Setup(App):
         self.window = GridLayout(cols=1, rows=9, row_force_default=True, rows_minimum={0: 40, 1: 100})
         self.window.size_hint = (0.6, 0.7)
         self.window.pos_hint = {'center_x': 0.5, 'center_y': 0.5}
-
+        
         self.window2 = GridLayout(cols=2, rows=3, row_default_height=100, row_force_default=True,
-                                  cols_minimum={0: 400, 1: 1})
+                                  cols_minimum={0:10, 1: 1})
         self.window2.size_hint = (0.6, 0.7)
         self.window2.pos_hint = {'center_x': 0.5, 'center_y': 0.5}
         self.window.add_widget(self.window2)
@@ -36,7 +36,7 @@ class Setup(App):
             font_size=35,
             color='#FF0000',
             opacity=0.6,
-            markup=True
+            markup=True,
         )
         self.label2.bind(on_ref_press=self.warning)
         self.window.add_widget(self.label2)
