@@ -4,7 +4,13 @@ PCB is a bot used for copying any kind of promotion codes from a Twitter account
 
 ## Configuration
 
-In order to configure the program first run setup.py file, after that PCB.py will be ready to run.
+Configuration step by step:
+1. Run 'setup.py' & fill out the necessary boxes.
+2. If using PCB v2 install Tesseract OCR:
+   On Windows: Download the installer from the official Tesseract repository on GitHub (https://github.com/UB-Mannheim/tesseract/wiki) and run it.
+   On macOS: Install Tesseract using Homebrew by running the command brew install tesseract.
+   On Linux: Use the package manager specific to your distribution. On Ubuntu, you can install Tesseract by running sudo apt-get install tesseract-ocr. 
+3. The program should be ready to run.
 
 ## Usage
 
