@@ -1,4 +1,3 @@
-import wget
 import time
 from datetime import datetime
 from pynput.keyboard import Key, Controller
@@ -6,8 +5,6 @@ import pyperclip
 import pytz
 import tweepy
 import platform
-from PIL import Image
-import pytesseract
 
 try:
     from config import id, token, code_len
