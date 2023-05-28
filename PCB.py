@@ -1,14 +1,18 @@
-import platform
+import wget
 import time
 from datetime import datetime
 from pynput.keyboard import Key, Controller
 import pyperclip
 import pytz
 import tweepy
-from config import id, token, code_len
 import platform
+from PIL import Image
+import pytesseract
 
-
+try:
+    from config import id, token, code_len
+except ImportError:
+    print("Error ~ Please remember to first run the setup.py file before running this program.")
 api = tweepy.Client(token)
 
 
@@ -18,10 +22,6 @@ def start():
     datetime_utc = datetime.now(utc)  #sets the time of start
     global time_object
     time_object = datetime_utc.strftime("%Y-%m-%dT%H:%M:%SZ")  #converts the time of start into the right format
-    new_tweet()
-    while code == 1:
-        new_time()
-    enter_code(code)
 
 
 def new_time():
@@ -31,29 +31,26 @@ def new_time():
     time_object = datetime_utc.strftime("%Y-%m-%dT%H:%M:%SZ")    #converts the time of start into the right format
     new_tweet()
 
-
 def new_tweet():    #checks if there is any new tweet since starting the program
     time.sleep(1)
     twt = api.get_users_tweets(id=id, max_results=5, start_time=time_object) # getting tweet data posted ->
     try:                                                                     # after the time_object
-        twt.meta.pop('newest_id')           #removing useless keys from data dict
+        twt.meta.pop('newest_id')        #removing useless keys from data dictionary
         twt.meta.pop('oldest_id')
         twt.meta.pop('next_token')
     except:
         pass
-    for key, value in twt.meta.items(): #if the value is 0 - meaning no new tweet repeat the function
+    for key, value in twt.meta.items():  #if the value is 0 - meaning no new tweet repeat the function
         if value == 0:
             new_tweet()
-        else:                           #if the value does not equal 0 start splitting the text into words
+        else:                            
             splitting(twt)
-
 
 def splitting(twt):                      #cleans the text from dict data and splits the text of the tweet into words
     y = str(twt.data)
     y = y[37:-3]                    #getting rid of the [<Tweet id=1234567899123456789 (...) '>] part in the data string
     y = y.replace("\n", " ")        #the text has \n as new line indicators, so it needs to be removed
     y = y.replace("\\n", " ")
-    global words
     words = y.split(" ")            #splitting the clear tweet text into words
     global code
     code = promo_codes(words)
@@ -89,6 +86,8 @@ def enter_code(code):
             keyboard.release('v')
     keyboard.press(Key.enter)
     keyboard.release(Key.enter)
+
+
 print("code is now running...")
 start()
 new_tweet()
